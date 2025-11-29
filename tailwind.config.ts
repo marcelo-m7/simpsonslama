@@ -57,6 +57,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        neon: {
+          purple: "hsl(var(--neon-purple))",
+          "purple-foreground": "hsl(var(--neon-purple-foreground))",
+        },
+        brasil: {
+          green: "hsl(var(--brasil-green))",
+          blue: "hsl(var(--brasil-blue))",
+        },
+      },
+      fontFamily: {
+        display: ['Bangers', 'cursive'],
+        body: ['Outfit', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
