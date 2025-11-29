@@ -2,12 +2,15 @@ import { MapPin, Phone, Mail, Clock, Instagram, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const address = "Av. Anísio Fernandes Coelho, 1730, Loja 03 – Jardim da Penha, Vitória – ES, 29060-670 – Brasil";
+  const phoneHref = t.contact.phoneValue.replace(/[^+\d]/g, "");
   // IMPORTANT: Replace 'YOUR_GOOGLE_MAPS_API_KEY' with your actual Google Maps API key.
   // It is recommended to use an environment variable for this (e.g., import.meta.env.VITE_GOOGLE_MAPS_API_KEY).
-  const googleMapsEmbedUrl = `https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(address)}&key=YOUR_GOOGLE_MAPS_API_KEY`; 
+  const googleMapsEmbedUrl = `https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(address)}&key=YOUR_GOOGLE_MAPS_API_KEY`;
 
   return (
     <div className="min-h-screen py-24">
@@ -15,12 +18,10 @@ const Contact = () => {
         {/* Hero */}
         <div className="text-center mb-16 animate-spray-paint">
           <h1 className="font-display text-6xl md:text-7xl text-primary mb-6 animate-neon-pulse">
-            CONTATO
+            {t.contact.heroTitle}
           </h1>
           <p className="font-body text-xl text-foreground max-w-3xl mx-auto">
-            Vem pro Springfield brasileiro! 
-            <br />
-            <span className="text-secondary">Estamos te esperando com um Duff gelado. 🍺</span>
+            {t.contact.heroSubtitle}
           </p>
         </div>
 
@@ -28,65 +29,47 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div className="border-4 border-primary rounded-lg graffiti-border bg-card p-8 hover-float">
-              <h2 className="font-display text-4xl text-primary mb-6">Onde Estamos</h2>
+              <h2 className="font-display text-4xl text-primary mb-6">{t.contact.whereTitle}</h2>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <MapPin className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-display text-xl text-secondary mb-2">Endereço</h3>
-                    <p className="font-body text-foreground">
-                      Av. Anísio Fernandes Coelho, 1730
-                      <br />
-                      Loja 03 – Jardim da Penha
-                      <br />
-                      Vitória – ES, 29060-670 – Brasil
-                    </p>
-                    <p className="font-body text-sm text-muted-foreground mt-2">
-                      (Procure pelo prédio coberto de graffiti dos Simpsons - impossível errar!)
-                    </p>
+                    <h3 className="font-display text-xl text-secondary mb-2">{t.contact.addressTitle ?? t.contact.addressLabel}</h3>
+                    <p className="font-body text-foreground whitespace-pre-line">{t.contact.addressLabel}</p>
+                    <p className="font-body text-sm text-muted-foreground mt-2">{t.contact.addressNote}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <Clock className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-display text-xl text-secondary mb-2">Horário</h3>
-                    <p className="font-body text-foreground">
-                      Segunda a Domingo: 18h - 6h
-                      <br />
-                      <span className="text-sm text-muted-foreground">
-                        (Sim, ficamos abertos até o sol nascer!)
-                      </span>
-                    </p>
+                    <h3 className="font-display text-xl text-secondary mb-2">{t.contact.hoursTitle}</h3>
+                    <p className="font-body text-foreground whitespace-pre-line">{t.contact.hoursValue}</p>
+                    <span className="text-sm text-muted-foreground">{t.contact.hoursNote}</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <Phone className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-display text-xl text-secondary mb-2">Telefone</h3>
-                    <a 
-                      href="tel:+5541999999999" 
-                      className="font-body text-foreground hover:text-accent transition-colors"
-                    >
-                      (41) 99999-9999
+                    <h3 className="font-display text-xl text-secondary mb-2">{t.contact.phoneTitle}</h3>
+                    <a href={`tel:${phoneHref}`} className="font-body text-foreground hover:text-accent transition-colors">
+                      {t.contact.phoneValue}
                     </a>
-                    <p className="font-body text-sm text-muted-foreground mt-1">
-                      WhatsApp disponível!
-                    </p>
+                    <p className="font-body text-sm text-muted-foreground mt-1">{t.contact.phoneNote}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <Mail className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-display text-xl text-secondary mb-2">Email</h3>
-                    <a 
-                      href="mailto:contato@simpsonsnalama.com.br"
+                    <h3 className="font-display text-xl text-secondary mb-2">{t.contact.emailTitle}</h3>
+                    <a
+                      href={`mailto:${t.contact.emailValue}`}
                       className="font-body text-foreground hover:text-accent transition-colors"
                     >
-                      contato@simpsonsnalama.com.br
+                      {t.contact.emailValue}
                     </a>
                   </div>
                 </div>
@@ -95,102 +78,81 @@ const Contact = () => {
 
             {/* Social Media */}
             <div className="border-4 border-secondary rounded-lg graffiti-border bg-card p-8 hover-float">
-              <h2 className="font-display text-4xl text-secondary mb-6">Redes Sociais</h2>
-              
-              <div className="space-y-4">
-                <a 
-                  href="https://www.instagram.com/simpsonsnalama/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-muted rounded-lg hover:bg-secondary/20 transition-colors group"
-                >
-                  <Instagram className="h-8 w-8 text-secondary group-hover:scale-110 transition-transform" />
-                  <div>
-                    <h3 className="font-display text-xl text-foreground">Instagram</h3>
-                    <p className="font-body text-muted-foreground">@simpsonsnalama</p>
-                  </div>
-                </a>
+              <h2 className="font-display text-4xl text-secondary mb-6">{t.contact.socialsTitle}</h2>
 
-                <a 
-                  href="https://x.com/simpsonslama" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-muted rounded-lg hover:bg-accent/20 transition-colors group"
-                >
-                  <X className="h-8 w-8 text-accent group-hover:scale-110 transition-transform" />
-                  <div>
-                    <h3 className="font-display text-xl text-foreground">X (Twitter)</h3>
-                    <p className="font-body text-muted-foreground">@simpsonslama</p>
-                  </div>
-                </a>
+              <div className="space-y-4">
+                {t.contact.socials.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-4 bg-muted rounded-lg hover:bg-secondary/20 transition-colors group"
+                  >
+                    {social.label.toLowerCase().includes("x") ? (
+                      <X className="h-8 w-8 text-accent group-hover:scale-110 transition-transform" />
+                    ) : (
+                      <Instagram className="h-8 w-8 text-secondary group-hover:scale-110 transition-transform" />
+                    )}
+                    <div>
+                      <h3 className="font-display text-xl text-foreground">{social.label}</h3>
+                      <p className="font-body text-muted-foreground">{social.handle}</p>
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className="border-4 border-accent rounded-lg graffiti-border bg-card p-8">
-            <h2 className="font-display text-4xl text-accent mb-6">Manda uma Mensagem!</h2>
-            
+            <h2 className="font-display text-4xl text-accent mb-6">{t.contact.formTitle}</h2>
+
             <form className="space-y-6">
               <div>
                 <label htmlFor="name" className="font-display text-xl text-foreground block mb-2">
-                  Nome
+                  {t.contact.formName}
                 </label>
-                <Input 
-                  id="name"
-                  type="text" 
-                  placeholder="Homer Simpson"
-                  className="border-2 border-muted focus:border-primary"
-                />
+                <Input id="name" type="text" placeholder={t.contact.formNamePlaceholder} className="border-2 border-muted focus:border-primary" />
               </div>
 
               <div>
                 <label htmlFor="email" className="font-display text-xl text-foreground block mb-2">
-                  Email
+                  {t.contact.formEmail}
                 </label>
-                <Input 
-                  id="email"
-                  type="email" 
-                  placeholder="homer@simpson.com"
-                  className="border-2 border-muted focus:border-primary"
-                />
+                <Input id="email" type="email" placeholder={t.contact.formEmailPlaceholder} className="border-2 border-muted focus:border-primary" />
               </div>
 
               <div>
                 <label htmlFor="phone" className="font-display text-xl text-foreground block mb-2">
-                  Telefone
+                  {t.contact.formPhone}
                 </label>
-                <Input 
-                  id="phone"
-                  type="tel" 
-                  placeholder="(41) 99999-9999"
-                  className="border-2 border-muted focus:border-primary"
-                />
+                <Input id="phone" type="tel" placeholder={t.contact.formPhonePlaceholder} className="border-2 border-muted focus:border-primary" />
               </div>
 
               <div>
                 <label htmlFor="message" className="font-display text-xl text-foreground block mb-2">
-                  Mensagem
+                  {t.contact.formMessage}
                 </label>
-                <Textarea 
+                <Textarea
                   id="message"
-                  placeholder="Conta pra gente: quer reservar uma mesa? Fazer um evento? Só dizer oi?"
+                  placeholder={t.contact.formMessagePlaceholder}
                   rows={5}
                   className="border-2 border-muted focus:border-primary"
                 />
               </div>
 
-              <Button 
-                type="submit" 
-                size="lg" 
+              <Button
+                type="submit"
+                size="lg"
                 className="w-full font-display text-2xl bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105 transition-all"
               >
-                Enviar Mensagem
+                {t.contact.formSubmit}
               </Button>
             </form>
 
             <p className="font-body text-sm text-muted-foreground mt-6 text-center">
-              Respondemos em até 24h. Ou no tempo que o Homer leva pra comer um donut. 🍩
+              {t.contact.formResponse}
             </p>
           </div>
         </div>
@@ -205,12 +167,12 @@ const Contact = () => {
             allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Localização do Simpsons na Lama"
-            aria-label="Google Map showing the location of Simpsons na Lama"
+            title={t.contact.mapTitle}
+            aria-label={t.contact.mapAria}
           ></iframe>
         </div>
         <p className="font-body text-sm text-muted-foreground mt-4 text-center">
-          <span className="text-accent font-bold">Atenção:</span> Para o mapa funcionar, você precisa substituir "YOUR_GOOGLE_MAPS_API_KEY" no código por uma chave de API válida do Google Maps. É altamente recomendado usar uma variável de ambiente (ex: `import.meta.env.VITE_GOOGLE_MAPS_API_KEY`) para isso.
+          {t.contact.mapNotice}
         </p>
       </div>
     </div>
