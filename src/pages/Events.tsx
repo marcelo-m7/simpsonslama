@@ -5,8 +5,8 @@ import { useTranslation } from "@/hooks/useTranslation";
 const Events = () => {
   const { t } = useTranslation();
   const regularIcons = [Mic, Palette, Trophy, Music];
-  const regularColors = ["border-secondary", "border-primary", "border-accent", "border-neon-yellow"]; // Changed from border-neon-purple
-  const regularAccent = ["text-secondary", "text-primary", "text-accent", "text-neon-yellow"]; // Changed from text-neon-purple
+  const regularColors = ["border-secondary", "border-primary", "border-accent", "border-neon-yellow"];
+  const regularAccent = ["text-secondary", "text-primary", "text-accent", "text-neon-yellow"];
 
   return (
     <div className="min-h-screen py-24">
@@ -43,8 +43,8 @@ const Events = () => {
                       <Icon className="h-8 w-8" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-display text-3xl text-primary mb-2">{event.title}</h3>
-                      <p className={`font-body text-lg ${regularAccent[index]} font-semibold`}>{event.date}</p>
+                      <h3 className="font-display text-3xl text-primary text-shadow-yellow mb-2">{event.title}</h3> {/* Added text-shadow-yellow */}
+                      <p className={`font-body text-lg ${regularAccent[index]} ${index === 3 ? "text-shadow-yellow" : ""} font-semibold`}>{event.date}</p> {/* Added text-shadow-yellow conditionally */}
                     </div>
                   </div>
                   <p className="font-body text-muted-foreground text-lg">{event.description}</p>
@@ -73,7 +73,7 @@ const Events = () => {
                     <Sparkles className="h-8 w-8" /> {/* Using Sparkles as a generic icon for special events */}
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-display text-3xl text-primary mb-2">{event.title}</h3>
+                    <h3 className="font-display text-3xl text-primary text-shadow-yellow mb-2">{event.title}</h3> {/* Added text-shadow-yellow */}
                     <p className="font-body text-lg text-secondary font-semibold">{event.date}</p>
                   </div>
                 </div>
@@ -85,7 +85,7 @@ const Events = () => {
 
         {/* Private Events CTA */}
         <section className="p-10 border-4 border-primary rounded-lg graffiti-border bg-gradient-to-r from-card to-muted text-center">
-          <h2 className="font-display text-5xl text-primary mb-6">
+          <h2 className="font-display text-5xl text-primary mb-6 animate-neon-pulse">
             {t.events.privateTitle}
           </h2>
           <p className="font-body text-xl text-foreground mb-8 max-w-3xl mx-auto">

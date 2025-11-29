@@ -36,7 +36,7 @@ const About = () => {
                     ? "text-secondary"
                     : index % 3 === 1
                       ? "text-accent"
-                      : "text-neon-yellow" // Changed from text-neon-purple
+                      : "text-neon-yellow text-shadow-yellow" // Added text-shadow-yellow
                 }`}
               >
                 {chapter.title}
@@ -48,7 +48,7 @@ const About = () => {
 
         {/* Call to Action */}
         <div className="mt-16 text-center p-8 border-4 border-secondary rounded-lg graffiti-border bg-card">
-          <p className="font-display text-3xl text-primary mb-4">"{t.about.quote}"</p>
+          <p className="font-display text-3xl text-primary text-shadow-yellow mb-4">"{t.about.quote}"</p> {/* Added text-shadow-yellow */}
           <p className="font-body text-lg text-muted-foreground">{t.about.quoteAuthor}</p>
         </div>
       </div>

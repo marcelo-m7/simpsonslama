@@ -4,7 +4,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 const Menu = () => {
   const { t } = useTranslation();
   const drinkIcons = [Flame, Beer, Sparkles, Zap, Sparkles, Beer];
-  const drinkColors = ["text-neon-yellow", "text-primary", "text-brasil-blue", "text-accent", "text-secondary", "text-accent"]; // Changed from text-neon-purple
+  const drinkColors = ["text-neon-yellow", "text-primary", "text-brasil-blue", "text-accent", "text-secondary", "text-accent"];
 
   return (
     <div className="min-h-screen py-24">
@@ -38,10 +38,10 @@ const Menu = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start justify-between mb-4">
-                    <Icon className={`h-10 w-10 ${color}`} />
+                    <Icon className={`h-10 w-10 ${color} ${index === 0 ? "text-shadow-yellow" : ""}`} /> {/* Added text-shadow-yellow conditionally */}
                     <span className="font-display text-2xl text-accent">{drink.price}</span>
                   </div>
-                  <h3 className="font-display text-3xl text-primary mb-3">{drink.name}</h3>
+                  <h3 className="font-display text-3xl text-primary text-shadow-yellow mb-3">{drink.name}</h3> {/* Added text-shadow-yellow */}
                   <p className="font-body text-muted-foreground">{drink.description}</p>
                 </div>
               );

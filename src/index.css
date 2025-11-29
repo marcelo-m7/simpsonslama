@@ -183,6 +183,10 @@ All colors MUST be HSL.
                  0 0 30px currentColor;
   }
 
+  .text-shadow-yellow {
+    text-shadow: 0 0 8px hsl(var(--neon-yellow) / 0.6), 0 0 12px hsl(var(--neon-yellow) / 0.4);
+  }
+
   .graffiti-border {
     border: 3px solid hsl(var(--primary));
     border-radius: 0.5rem;
