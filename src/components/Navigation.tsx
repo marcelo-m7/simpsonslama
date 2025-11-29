@@ -2,18 +2,12 @@ import { useState } from "react";
 import { NavLink } from "./NavLink";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const navItems = [
-    { to: "/", label: "Home" },
-    { to: "/about", label: "Sobre" },
-    { to: "/menu", label: "Menu" },
-    { to: "/events", label: "Eventos" },
-    { to: "/gallery", label: "Galeria" },
-    { to: "/contact", label: "Contato" },
-  ];
+  const { t, setLocale } = useTranslation();
+  const navItems = t.navigation.items;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b-4 border-primary bg-background/95 backdrop-blur-sm">
@@ -22,7 +16,7 @@ const Navigation = () => {
           {/* Logo */}
           <NavLink to="/" className="flex items-center gap-2 group">
             <span className="font-display text-3xl md:text-4xl text-primary animate-neon-pulse group-hover:scale-110 transition-transform">
-              SIMPSONS NA LAMA
+              {t.navigation.brand}
             </span>
           </NavLink>
 
@@ -38,6 +32,15 @@ const Navigation = () => {
                 {item.label}
               </NavLink>
             ))}
+            <Button
+              variant="outline"
+              size="sm"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              onClick={() => setLocale()}
+              aria-label={t.navigation.ariaToggle}
+            >
+              {t.navigation.toggleLabel}
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -66,6 +69,14 @@ const Navigation = () => {
                 {item.label}
               </NavLink>
             ))}
+            <Button
+              variant="outline"
+              className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              onClick={() => setLocale()}
+              aria-label={t.navigation.ariaToggle}
+            >
+              {t.navigation.toggleLabel}
+            </Button>
           </div>
         )}
       </div>
