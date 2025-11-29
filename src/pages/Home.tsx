@@ -5,6 +5,7 @@ import heroBar from "@/assets/hero-bar.jpg";
 import donutIcon from "@/assets/donut-icon.png";
 import duffIcon from "@/assets/duff-icon.png";
 import { useTranslation } from "@/hooks/useTranslation";
+import { cn } from "@/lib/utils"; // Import cn utility
 
 const Home = () => {
   const { t } = useTranslation();
@@ -22,7 +23,7 @@ const Home = () => {
         </div>
         
         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
-          <div className="space-y-6 animate-spray-paint">
+          <div className="space-y-6 transition-transform duration-300 ease-in-out hover:rotate-[-1deg] hover:scale-[0.98]"> {/* Aligned by default, misaligned on hover */}
             <h1 className="font-display text-6xl md:text-8xl text-primary animate-neon-pulse">
               {t.home.heroTitle}
             </h1>
@@ -68,13 +69,15 @@ const Home = () => {
               return (
                 <div
                   key={feature.title}
-                  className={`text-center space-y-4 p-6 border-4 rounded-lg hover-float graffiti-border bg-background/50 ${
+                  className={cn(
+                    "text-center space-y-4 p-6 border-4 rounded-lg hover-float graffiti-border bg-background/50",
+                    "transition-transform duration-300 ease-in-out hover:rotate-[-1deg]", // Aligned by default, misaligned on hover
                     index === 0
                       ? "border-primary"
                       : index === 1
                         ? "border-secondary"
                         : "border-accent"
-                  }`}
+                  )}
                 >
                   <div className="flex justify-center">
                     <Icon
@@ -83,13 +86,13 @@ const Home = () => {
                           ? "text-secondary"
                           : index === 1
                             ? "text-accent"
-                            : "text-neon-yellow text-shadow-yellow" // Added text-shadow-yellow
+                            : "text-neon-yellow text-shadow-yellow"
                       }`}
                     />
                   </div>
                   <h3
                     className={`font-display text-3xl ${
-                      index === 0 ? "text-primary text-shadow-yellow" : index === 1 ? "text-secondary" : "text-accent" // Added text-shadow-yellow
+                      index === 0 ? "text-primary text-shadow-yellow" : index === 1 ? "text-secondary" : "text-accent"
                     }`}
                   >
                     {feature.title}

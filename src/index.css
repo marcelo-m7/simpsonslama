@@ -190,7 +190,7 @@ All colors MUST be HSL.
   .graffiti-border {
     border: 3px solid hsl(var(--primary));
     border-radius: 0.5rem;
-    transform: rotate(-1deg);
+    /* Removed default transform: rotate(-1deg); */
     box-shadow: 5px 5px 0 hsl(var(--secondary) / 0.3);
   }
 
@@ -210,11 +210,12 @@ All colors MUST be HSL.
     animation: neon-pulse 2s ease-in-out infinite;
   }
 
-  .animate-spray-paint {
+  /* Removed animate-spray-paint and animate-slide-graffiti from utility layer as they are no longer used for initial misalignment */
+  /* .animate-spray-paint {
     animation: spray-paint 0.6s ease-out;
   }
 
   .animate-slide-graffiti {
     animation: slide-in-graffiti 0.8s ease-out;
-  }
+  } */
 }
