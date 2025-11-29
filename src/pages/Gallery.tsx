@@ -1,9 +1,40 @@
+import { useState } from "react";
 import GalleryImagePlaceholder from "@/components/GalleryImagePlaceholder";
-import { useTranslation } from "@/hooks/useTranslation";
 
 const Gallery = () => {
   const { t } = useTranslation();
   const categories = t.gallery.categories;
+
+  // Generate all images for lightbox
+  const allImages = categories.flatMap((category, catIndex) =>
+    Array.from({ length: category.images }).map((_, index) => ({
+      src: "/placeholder.svg",
+      alt: `${category.title} - Foto ${index + 1}`,
+      categoryIndex: catIndex,
+      imageIndex: index,
+    }))
+  );
+
+  const handleImageClick = (catIndex: number, imgIndex: number) => {
+    // Calculate the global index for this image
+    const globalIndex = categories
+      .slice(0, catIndex)
+      .reduce((sum, cat) => sum + cat.images, 0) + imgIndex;
+    
+    setCurrentCategory(catIndex);
+    setCurrentImageIndex(globalIndex);
+    setLightboxOpen(true);
+  };
+
+  const handleNext = () => {
+    setCurrentImageIndex((prev) => 
+      prev < allImages.length - 1 ? prev + 1 : prev
+    );
+  };
+
+  const handlePrevious = () => {
+    setCurrentImageIndex((prev) => (prev > 0 ? prev - 1 : prev));
+  };
 
   return (
     <div className="min-h-screen py-24">
@@ -32,11 +63,21 @@ const Gallery = () => {
                 {Array.from({ length: category.images }).map((_, index) => (
                   <div 
                     key={index}
+                    onClick={() => handleImageClick(catIndex, index)}
                     className={`
                       ${category.color} border-4 rounded-lg graffiti-border bg-muted 
                       hover:scale-105 transition-transform cursor-pointer overflow-hidden
                       ${index % 3 === 0 ? 'md:col-span-2 aspect-video' : 'aspect-square'}
                     `}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleImageClick(catIndex, index);
+                      }
+                    }}
+                    aria-label={`Ver ${category.title} - Foto ${index + 1} em tela cheia`}
                   >
                     <GalleryImagePlaceholder text={`Foto ${index + 1}`} />
                   </div>
@@ -68,6 +109,16 @@ const Gallery = () => {
             {t.gallery.homerTip}
           </p>
         </div>
+
+        {/* Lightbox */}
+        <Lightbox
+          images={allImages}
+          currentIndex={currentImageIndex}
+          isOpen={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+          onNext={handleNext}
+          onPrevious={handlePrevious}
+        />
       </div>
     </div>
   );
