@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { NavLink } from "./NavLink";
-import { Menu, X } from "lucide-react"; // Changed Burger back to Menu
+import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTranslation } from "@/hooks/useTranslation";
+import { ThemeToggle } from "./ThemeToggle"; // Import ThemeToggle
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +22,7 @@ const Navigation = () => {
           </NavLink>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-4"> {/* Adjusted gap */}
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
@@ -32,6 +33,7 @@ const Navigation = () => {
                 {item.label}
               </NavLink>
             ))}
+            <ThemeToggle /> {/* Added ThemeToggle */}
             <Button
               variant="outline"
               size="sm"
@@ -51,7 +53,7 @@ const Navigation = () => {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />} {/* Changed Burger back to Menu */}
+            {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
           </Button>
         </div>
 
@@ -69,14 +71,17 @@ const Navigation = () => {
                 {item.label}
               </NavLink>
             ))}
-            <Button
-              variant="outline"
-              className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-              onClick={() => setLocale()}
-              aria-label={t.navigation.ariaToggle}
-            >
-              {t.navigation.toggleLabel}
-            </Button>
+            <div className="flex gap-4"> {/* Added a div to group buttons */}
+              <ThemeToggle /> {/* Added ThemeToggle to mobile menu */}
+              <Button
+                variant="outline"
+                className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                onClick={() => setLocale()}
+                aria-label={t.navigation.ariaToggle}
+              >
+                {t.navigation.toggleLabel}
+              </Button>
+            </div>
           </div>
         )}
       </div>

@@ -30,6 +30,9 @@ type TranslationContent = {
     items: NavigationItem[];
     toggleLabel: string;
     ariaToggle: string;
+    themeLight: string; // Added
+    themeDark: string;  // Added
+    themeSystem: string; // Added
   };
   footer: {
     description: string;
@@ -118,7 +121,8 @@ type TranslationContent = {
     formNamePlaceholder: string;
     formEmailPlaceholder: string;
     formPhonePlaceholder: string;
-    formMessagePlaceholder: string;
+    formMessagePlaceholder:
+        "Conta pra gente: quer reservar uma mesa? Fazer um evento? Só dizer oi?";
     formSubmit: string;
     formResponse: string;
     mapNotice: string;
@@ -151,6 +155,9 @@ export const translations: Record<Locale, TranslationContent> = {
       ],
       toggleLabel: "EN",
       ariaToggle: "Mudar idioma para inglês",
+      themeLight: "Claro",
+      themeDark: "Escuro",
+      themeSystem: "Sistema",
     },
     footer: {
       description: "O bar mais caótico, divertido e cheio de graffiti de Vitória, ES. Ay caramba!",
@@ -438,6 +445,9 @@ export const translations: Record<Locale, TranslationContent> = {
       ],
       toggleLabel: "PT",
       ariaToggle: "Switch language to Portuguese",
+      themeLight: "Light",
+      themeDark: "Dark",
+      themeSystem: "System",
     },
     footer: {
       description:
