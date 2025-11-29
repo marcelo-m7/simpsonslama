@@ -1,6 +1,8 @@
 import { Beer, Flame, Sparkles, Zap } from "lucide-react";
 
 const Menu = () => {
+  // NOTE: This menu data is currently hardcoded. In a real application,
+  // this data would typically be fetched from a backend API or a content management system.
   const drinks = [
     {
       name: "Flaming Moe",

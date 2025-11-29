@@ -5,7 +5,9 @@ import { Textarea } from "@/components/ui/textarea";
 
 const Contact = () => {
   const address = "Av. Anísio Fernandes Coelho, 1730, Loja 03 – Jardim da Penha, Vitória – ES, 29060-670 – Brasil";
-  const googleMapsEmbedUrl = `https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(address)}&key=YOUR_GOOGLE_MAPS_API_KEY`; // Placeholder for API key
+  // IMPORTANT: Replace 'YOUR_GOOGLE_MAPS_API_KEY' with your actual Google Maps API key.
+  // It is recommended to use an environment variable for this (e.g., import.meta.env.VITE_GOOGLE_MAPS_API_KEY).
+  const googleMapsEmbedUrl = `https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(address)}&key=YOUR_GOOGLE_MAPS_API_KEY`; 
 
   return (
     <div className="min-h-screen py-24">
@@ -208,7 +210,7 @@ const Contact = () => {
           ></iframe>
         </div>
         <p className="font-body text-sm text-muted-foreground mt-4 text-center">
-          <span className="text-accent font-bold">Atenção:</span> Para o mapa funcionar, você precisa substituir "YOUR_GOOGLE_MAPS_API_KEY" no código por uma chave de API válida do Google Maps.
+          <span className="text-accent font-bold">Atenção:</span> Para o mapa funcionar, você precisa substituir "YOUR_GOOGLE_MAPS_API_KEY" no código por uma chave de API válida do Google Maps. É altamente recomendado usar uma variável de ambiente (ex: `import.meta.env.VITE_GOOGLE_MAPS_API_KEY`) para isso.
         </p>
       </div>
     </div>

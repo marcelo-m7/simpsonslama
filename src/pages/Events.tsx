@@ -2,6 +2,8 @@ import { Calendar, Mic, Palette, Trophy, Music, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Events = () => {
+  // NOTE: This event data is currently hardcoded. In a real application,
+  // this data would typically be fetched from a backend API or a content management system.
   const upcomingEvents = [
     {
       title: "Krustyland Karaokê Night",

@@ -1,3 +1,5 @@
+import GalleryImagePlaceholder from "@/components/GalleryImagePlaceholder";
+
 const Gallery = () => {
   // Placeholder for actual gallery images - would be populated with real photos
   const categories = [
@@ -56,11 +58,7 @@ const Gallery = () => {
                       ${index % 3 === 0 ? 'md:col-span-2 aspect-video' : 'aspect-square'}
                     `}
                   >
-                    <div className="w-full h-full flex items-center justify-center">
-                      <p className="font-display text-2xl text-primary opacity-50">
-                        Foto {index + 1}
-                      </p>
-                    </div>
+                    <GalleryImagePlaceholder text={`Foto ${index + 1}`} />
                   </div>
                 ))}
               </div>
