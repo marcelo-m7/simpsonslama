@@ -23,7 +23,7 @@ const Home = () => {
         </div>
         
         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
-          <div className="space-y-6 transition-transform duration-300 ease-in-out hover:rotate-[-1deg] hover:scale-[0.98]"> {/* Aligned by default, misaligned on hover */}
+          <div className="space-y-6 animate-spray-paint"> {/* Reverted to original animate-spray-paint */}
             <h1 className="font-display text-6xl md:text-8xl text-primary animate-neon-pulse">
               {t.home.heroTitle}
             </h1>
