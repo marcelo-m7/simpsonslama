@@ -149,6 +149,21 @@ All colors MUST be HSL.
   }
 }
 
+/* Monynha Softwares custom animations */
+@keyframes jelly-bounce {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(0.95); }
+  75% { transform: scale(1.05); }
+}
+
+@keyframes pulse-light {
+  0% { opacity: 0.5; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.5; transform: scale(0.8); }
+}
+
+
 /* Utility classes */
 @layer utilities {
   .font-display {

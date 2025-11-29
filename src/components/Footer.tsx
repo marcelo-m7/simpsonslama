@@ -1,4 +1,5 @@
 import { Instagram, Facebook, MapPin, Phone, Mail } from "lucide-react";
+import MonynhaLogo from "./MonynhaLogo";
 
 const Footer = () => {
   return (
@@ -78,6 +79,15 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground font-body">
             © 2025 Simpsons na Lama. Todos os direitos reservados. D'oh! 🍩
           </p>
+          {/* Monynha Softwares Attribution */}
+          <div className="mt-6 flex flex-col items-center justify-center space-y-4">
+            <MonynhaLogo />
+            <p className="font-body text-xs text-muted-foreground max-w-xs">
+              Website crafted with love by Monynha Softwares — inclusive, human-centered & experimental Brazilian technology.
+              <br />
+              Site desenvolvido com carinho pela Monynha Softwares — tecnologia brasileira experimental, humana e acessível.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
