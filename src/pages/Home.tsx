@@ -22,8 +22,8 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
-          <div className="space-y-6 animate-spray-paint"> {/* Reverted to original animate-spray-paint */}
+        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center pt-20"> {/* Adicionado pt-20 aqui */}
+          <div className="space-y-6 animate-spray-paint">
             <h1 className="font-display text-6xl md:text-8xl text-primary animate-neon-pulse">
               {t.home.heroTitle}
             </h1>
