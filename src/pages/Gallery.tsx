@@ -1,9 +1,15 @@
 import { useState } from "react";
 import GalleryImagePlaceholder from "@/components/GalleryImagePlaceholder";
+import Lightbox from "@/components/Lightbox"; // Added this import
+import { useTranslation } from "@/hooks/useTranslation"; // Ensure useTranslation is imported
 
 const Gallery = () => {
   const { t } = useTranslation();
   const categories = t.gallery.categories;
+
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentCategory, setCurrentCategory] = useState(0); // This state is not used in the current logic for allImages, but might be for other purposes.
 
   // Generate all images for lightbox
   const allImages = categories.flatMap((category, catIndex) =>
