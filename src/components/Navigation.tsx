@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "./NavLink";
-import { Menu, X } from "lucide-react";
+import { Burger, X } from "lucide-react"; // Changed Menu to Burger
 import { Button } from "./ui/button";
 import { useTranslation } from "@/hooks/useTranslation";
 
@@ -51,7 +51,7 @@ const Navigation = () => {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
+            {isOpen ? <X className="h-8 w-8" /> : <Burger className="h-8 w-8" />} {/* Changed Menu to Burger */}
           </Button>
         </div>
 
