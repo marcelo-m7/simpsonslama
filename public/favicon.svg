@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Simpsons na Lama Donut Favicon</title>
+  {/* Donut body - using a light background color */}
+  <circle cx="16" cy="16" r="12" fill="#F2C94C"/> {/* Yellowish color for donut */}
+  {/* Donut hole */}
+  <circle cx="16" cy="16" r="5" fill="#FFF7E8"/> {/* Background color for the hole */}
+  {/* Icing - using a primary color */}
+  <path d="M16 4C10.4772 4 6 8.47715 6 14C6 19.5228 10.4772 24 16 24C21.5228 24 26 19.5228 26 14C26 8.47715 21.5228 4 16 4ZM16 6C20.4183 6 24 9.58172 24 14C24 18.4183 20.4183 22 16 22C11.5817 22 8 18.4183 8 14C8 9.58172 11.5817 6 16 6Z" fill="#AA3140"/> {/* Reddish color for icing */}
+  {/* Sprinkles - using accent colors */}
+  <rect x="10" y="8" width="2" height="4" rx="1" fill="#7A1025"/>
+  <rect x="20" y="10" width="2" height="4" rx="1" transform="rotate(45 20 10)" fill="#7A1025"/>
+  <rect x="14" y="20" width="2" height="4" rx="1" transform="rotate(90 14 20)" fill="#7A1025"/>
+  <rect x="22" y="18" width="2" height="4" rx="1" transform="rotate(135 22 18)" fill="#7A1025"/>
+</svg>
