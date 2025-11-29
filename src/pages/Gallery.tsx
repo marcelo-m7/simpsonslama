@@ -30,7 +30,7 @@ const Gallery = () => {
             GALERIA
           </h1>
           <p className="font-body text-xl text-foreground max-w-3xl mx-auto">
-            Um tour visual pelo bar mais maluco de Curitiba. 
+            Um tour visual pelo bar mais maluco de Vitória, ES. 
             <br />
             <span className="text-secondary">Cada foto conta uma história épica!</span>
           </p>
@@ -80,7 +80,7 @@ const Gallery = () => {
             adoramos ver vocês se divertindo! 
           </p>
           <a 
-            href="https://instagram.com" 
+            href="https://www.instagram.com/simpsonsnalama/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-block font-display text-xl bg-secondary text-secondary-foreground px-8 py-4 rounded-lg hover:bg-secondary/90 hover:scale-105 transition-all"

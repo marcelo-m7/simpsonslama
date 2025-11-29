@@ -1,9 +1,12 @@
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Instagram, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const Contact = () => {
+  const address = "Av. Anísio Fernandes Coelho, 1730, Loja 03 – Jardim da Penha, Vitória – ES, 29060-670 – Brasil";
+  const googleMapsEmbedUrl = `https://www.google.com/maps/embed/v1/place?q=${encodeURIComponent(address)}&key=YOUR_GOOGLE_MAPS_API_KEY`; // Placeholder for API key
+
   return (
     <div className="min-h-screen py-24">
       <div className="container mx-auto px-4">
@@ -31,11 +34,11 @@ const Contact = () => {
                   <div>
                     <h3 className="font-display text-xl text-secondary mb-2">Endereço</h3>
                     <p className="font-body text-foreground">
-                      Rua Springfield, 742
+                      Av. Anísio Fernandes Coelho, 1730
                       <br />
-                      Jardim da Penha - Curitiba, PR
+                      Loja 03 – Jardim da Penha
                       <br />
-                      CEP: 80000-000
+                      Vitória – ES, 29060-670 – Brasil
                     </p>
                     <p className="font-body text-sm text-muted-foreground mt-2">
                       (Procure pelo prédio coberto de graffiti dos Simpsons - impossível errar!)
@@ -94,7 +97,7 @@ const Contact = () => {
               
               <div className="space-y-4">
                 <a 
-                  href="https://instagram.com" 
+                  href="https://www.instagram.com/simpsonsnalama/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 bg-muted rounded-lg hover:bg-secondary/20 transition-colors group"
@@ -107,15 +110,15 @@ const Contact = () => {
                 </a>
 
                 <a 
-                  href="https://facebook.com" 
+                  href="https://x.com/simpsonslama" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 bg-muted rounded-lg hover:bg-accent/20 transition-colors group"
                 >
-                  <Facebook className="h-8 w-8 text-accent group-hover:scale-110 transition-transform" />
+                  <X className="h-8 w-8 text-accent group-hover:scale-110 transition-transform" />
                   <div>
-                    <h3 className="font-display text-xl text-foreground">Facebook</h3>
-                    <p className="font-body text-muted-foreground">Simpsons na Lama</p>
+                    <h3 className="font-display text-xl text-foreground">X (Twitter)</h3>
+                    <p className="font-body text-muted-foreground">@simpsonslama</p>
                   </div>
                 </a>
               </div>
@@ -190,16 +193,23 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Map Placeholder */}
-        <div className="border-4 border-primary rounded-lg graffiti-border bg-muted overflow-hidden h-96 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-            <p className="font-display text-3xl text-primary">Mapa do Google aqui</p>
-            <p className="font-body text-muted-foreground mt-2">
-              Rua Springfield, 742 - Jardim da Penha
-            </p>
-          </div>
+        {/* Google Map Integration */}
+        <div className="border-4 border-primary rounded-lg graffiti-border bg-muted overflow-hidden h-96">
+          <iframe
+            src={googleMapsEmbedUrl}
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Localização do Simpsons na Lama"
+            aria-label="Google Map showing the location of Simpsons na Lama"
+          ></iframe>
         </div>
+        <p className="font-body text-sm text-muted-foreground mt-4 text-center">
+          <span className="text-accent font-bold">Atenção:</span> Para o mapa funcionar, você precisa substituir "YOUR_GOOGLE_MAPS_API_KEY" no código por uma chave de API válida do Google Maps.
+        </p>
       </div>
     </div>
   );
