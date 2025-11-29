@@ -5,8 +5,8 @@ import { useTranslation } from "@/hooks/useTranslation";
 const Events = () => {
   const { t } = useTranslation();
   const regularIcons = [Mic, Palette, Trophy, Music];
-  const regularColors = ["border-secondary", "border-primary", "border-accent", "border-neon-purple"];
-  const regularAccent = ["text-secondary", "text-primary", "text-accent", "text-neon-purple"];
+  const regularColors = ["border-secondary", "border-primary", "border-accent", "border-neon-yellow"]; // Changed from border-neon-purple
+  const regularAccent = ["text-secondary", "text-primary", "text-accent", "text-neon-yellow"]; // Changed from text-neon-purple
 
   return (
     <div className="min-h-screen py-24">
@@ -70,7 +70,7 @@ const Events = () => {
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="p-3 rounded-lg bg-muted text-secondary">
-                    <event.icon className="h-8 w-8" />
+                    <Sparkles className="h-8 w-8" /> {/* Using Sparkles as a generic icon for special events */}
                   </div>
                   <div className="flex-1">
                     <h3 className="font-display text-3xl text-primary mb-2">{event.title}</h3>

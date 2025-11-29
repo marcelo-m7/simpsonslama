@@ -83,7 +83,7 @@ const Home = () => {
                           ? "text-secondary"
                           : index === 1
                             ? "text-accent"
-                            : "text-neon-purple"
+                            : "text-neon-yellow" // Changed from text-neon-purple
                       }`}
                     />
                   </div>
@@ -109,7 +109,7 @@ const Home = () => {
 
       {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 via-neon-purple/20 to-accent/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 via-neon-yellow/20 to-accent/20"></div> {/* Changed from via-neon-purple/20 */}
         <div className="relative z-10 container mx-auto px-4 text-center">
           <h2 className="font-display text-5xl md:text-6xl text-primary mb-6 animate-neon-pulse">
             {t.home.ctaTitle}

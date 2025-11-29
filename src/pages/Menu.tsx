@@ -4,7 +4,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 const Menu = () => {
   const { t } = useTranslation();
   const drinkIcons = [Flame, Beer, Sparkles, Zap, Sparkles, Beer];
-  const drinkColors = ["text-neon-purple", "text-primary", "text-brasil-blue", "text-accent", "text-secondary", "text-accent"];
+  const drinkColors = ["text-neon-yellow", "text-primary", "text-brasil-blue", "text-accent", "text-secondary", "text-accent"]; // Changed from text-neon-purple
 
   return (
     <div className="min-h-screen py-24">

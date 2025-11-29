@@ -36,7 +36,7 @@ const About = () => {
                     ? "text-secondary"
                     : index % 3 === 1
                       ? "text-accent"
-                      : "text-neon-purple"
+                      : "text-neon-yellow" // Changed from text-neon-purple
                 }`}
               >
                 {chapter.title}
